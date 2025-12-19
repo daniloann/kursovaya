@@ -9,7 +9,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py migrate
-      python manage.py collectstatic --noinput
+      python manage.py collectstatic --noinput  # ← ВАЖНО!
     startCommand: gunicorn genealogy.wsgi:application
     plan: free
     envVars:
@@ -23,5 +23,3 @@ services:
         value: "False"
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
-      - key: DISABLE_COLLECTSTATIC
-        value: "1"
