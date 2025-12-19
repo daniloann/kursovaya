@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-v+y&zjymosfoe2j(7p=p4$r!$nm+bo$tey7+7--2gxjkt&#b)0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['my-genealogy-site.onrender.com']
 
 # Application definition
 
