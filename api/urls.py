@@ -1,8 +1,12 @@
 from django.urls import path
 from . import views
 
+
+
+
 urlpatterns = [
     # Основные функции
+    path('', views.home, name='home'),
     path('country/simple_search/', views.simple_search),
     path('person/save/', views.save_person),
     path('relationship/save/', views.save_relationship),
