@@ -166,3 +166,9 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 # Для статических файлов на Render
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Для whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Разрешить CORS (для разработки)
+CORS_ALLOW_ALL_ORIGINS = True

@@ -23,3 +23,5 @@ services:
         value: "False"
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
+      - key: DISABLE_COLLECTSTATIC
+        value: "1"
