@@ -8,10 +8,6 @@ from .models import (
 )
 from .serializers import PersonSerializer
 from django.db import transaction
-from django.shortcuts import render
-
-def home(request):
-    return render(request, 'index.html')
 
 # === ПРОСТОЙ ПОИСК ===
 @csrf_exempt
