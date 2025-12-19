@@ -147,3 +147,22 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+# Настройки для Render
+import os
+import dj_database_url
+
+# Автоматическое определение БД
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+
+# Разрешить хостинг Render
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
+# Для статических файлов на Render
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
