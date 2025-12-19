@@ -22,15 +22,13 @@
                 <div class="brand-icon">🌿</div>
                 <h1>Родовой След</h1>
             </div>
+            <!-- Исправьте навигацию -->
             <div class="nav-links">
                 <button data-section="searchSection" class="nav-btn active" title="Поиск">
                     <i class="fas fa-search"></i>
                 </button>
                 <button data-section="treeSection" class="nav-btn" title="Дерево">
                     <i class="fas fa-sitemap"></i>
-                </button>
-                <button data-section="profileSection" class="nav-btn" title="Профиль">
-                    <i class="fas fa-user"></i>
                 </button>
             </div>
         </nav>
@@ -43,7 +41,7 @@
                     <h2><i class="fas fa-search"></i> Поиск в базе</h2>
                 </div>
                 <form id="simpleSearchForm" class="modern-form-grid">
-                    <input type="text" id="searchFio" placeholder="Имя, фамилия или отчество">
+                    <input type="text" id="searchFio" placeholder="Фамилию и имя">
                     <select id="searchGender">
                         <option value="">Любой пол</option>
                         <option value="1">Мужской</option>
@@ -65,6 +63,7 @@
                 </div>
 
                 <!-- Основной человек -->
+                <!-- В форме добавления себя ДОБАВЬТЕ поле города: -->
                 <div class="modern-form-grid">
                     <input type="text" id="selfName" placeholder="Ваше имя">
                     <input type="text" id="selfSurname" placeholder="Ваша фамилия">
@@ -73,10 +72,14 @@
                         <option value="0">Женский</option>
                     </select>
                     <input type="number" id="selfBirth" placeholder="Год рождения">
+
+                    <!-- ДОБАВЬТЕ ЭТО ПОЛЕ -->
+                    <input type="text" id="selfCity" placeholder="Ваш город (например: Москва)">
+
                     <button type="button" class="btn-primary" onclick="addSelf()">Добавить себя</button>
                 </div>
 
-                <!-- Кнопка добавления -->
+               <!-- В разделе дерева -->
                 <div style="margin-top: 2rem; text-align: center;">
                     <button type="button" class="btn-secondary" onclick="addRelativeForm()">
                         + Добавить родственника
@@ -97,68 +100,9 @@
             <!-- Контейнер для дерева -->
             <div id="treeContainer" class="tree-container" style="margin-top: 2rem;"></div>
         </section>
-
-        <!-- ВКЛАДКА 3: ПРОФИЛЬ -->
-        <section id="profileSection" class="section">
-            <!-- Вход -->
-            <div class="glass-card" id="loginForm">
-                <div class="section-header">
-                    <h2><i class="fas fa-sign-in-alt"></i> Вход</h2>
-                </div>
-                <div class="modern-form-grid">
-                    <input type="email" id="loginEmail" placeholder="Email">
-                    <input type="password" id="loginPassword" placeholder="Пароль">
-                    <button type="button" class="btn-primary" onclick="loginUser()">Войти</button>
-                    <button type="button" class="btn-secondary" onclick="showRegister()">Регистрация</button>
-                </div>
-            </div>
-
-            <!-- Регистрация -->
-            <div class="glass-card" id="registerForm" style="display: none;">
-                <div class="section-header">
-                    <h2><i class="fas fa-user-plus"></i> Регистрация</h2>
-                </div>
-                <div class="modern-form-grid">
-                    <input type="text" id="regName" placeholder="Имя">
-                    <input type="text" id="regSurname" placeholder="Фамилия">
-                    <input type="email" id="regEmail" placeholder="Email">
-                    <input type="password" id="regPassword" placeholder="Пароль">
-                    <select id="regGender">
-                        <option value="1">Мужской</option>
-                        <option value="0">Женский</option>
-                    </select>
-                    <button type="button" class="btn-primary" onclick="registerUser()">Зарегистрироваться</button>
-                    <button type="button" class="btn-secondary" onclick="showLogin()">Уже есть аккаунт</button>
-                </div>
-            </div>
-
-            <!-- Профиль -->
-            <div class="glass-card" id="userProfile" style="display: none;">
-                <div class="section-header">
-                    <h2>Привет, <span id="userName"></span>!</h2>
-                </div>
-                <button type="button" class="btn-secondary" onclick="logout()">Выйти</button>
-            </div>
-        </section>
     </main>
-
     <script src="/static/js/api.js"></script>
-    <script src="/static/js/simpleSearch.js"></script>
-    <script src="/static/js/tree.js"></script>
-    <script src="/static/js/auth.js"></script>
     <script src="/static/js/app.js"></script>
-
-    <script>
-        window.showLogin = () => {
-            document.getElementById('loginForm').style.display = 'block';
-            document.getElementById('registerForm').style.display = 'none';
-            document.getElementById('userProfile').style.display = 'none';
-        };
-        window.showRegister = () => {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('registerForm').style.display = 'block';
-            document.getElementById('userProfile').style.display = 'none';
-        };
-    </script>
+    <script src="/static/js/tree.js"></script>
 </body>
 </html>

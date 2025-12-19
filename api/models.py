@@ -1,4 +1,3 @@
-# api/models.py
 from django.db import models
 
 class Country(models.Model):
@@ -100,6 +99,9 @@ class Person(models.Model):
 
     class Meta:
         db_table = 'Person'
+
+    def __str__(self):
+        return f"{self.surname} {self.name} (ID: {self.id})"
 
 class FamilyConnection(models.Model):
     idPerson = models.ForeignKey(

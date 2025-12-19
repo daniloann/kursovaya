@@ -1,13 +1,16 @@
-# api/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
+    # Основные функции
     path('country/simple_search/', views.simple_search),
-    path('family/members/', views.get_family_members),
-    path('family/get_family_tree/', views.get_family_tree),
-    path('person/password/', views.password_change),
-    path('auth/login/', views.login_view),
-    path('auth/register/', views.register_view),
-    path('person/add_with_relation/', views.create_person_with_relation),
+    path('person/save/', views.save_person),
+    path('relationship/save/', views.save_relationship),
+    path('person/all/', views.get_all_people),
+    path('tree/build/<int:person_id>/', views.build_tree, name='build_tree'),
+    # Географические данные
+    path('geo/countries/', views.get_countries, name='get_countries'),
+    path('geo/regions/', views.get_regions, name='get_regions'),
+    path('geo/cities/', views.get_cities, name='get_cities'),
+    path('geo/search_cities/', views.search_cities, name='search_cities'),
 ]
